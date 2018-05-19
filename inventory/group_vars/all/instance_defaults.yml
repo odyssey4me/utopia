@@ -1,0 +1,12 @@
+---
+default_cloud: "rackspace"
+default_region: "IAD"
+default_flavor: "general1-8"
+default_image: "Ubuntu 18.04 LTS (Bionic Beaver) (PVHVM)"
+default_key_name: "jenkins"
+default_metadata:
+  # NOTE(odyssey4me):
+  # This disables the addition of any value-add packages
+  # provided
+  build_config: core
+default_security_groups: []

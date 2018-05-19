@@ -1,2 +1,2 @@
 ---
-# This file is intentionally empty at this time.
+- import_playbook: setup-openstack-instances.yml

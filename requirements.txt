@@ -1,3 +1,9 @@
 ansible
-python-openstackclient
+
+# The ansible os_* modules and the openstack
+# inventory plugin require this
 shade
+
+# The ansible os_server_action module
+# requires this
+python-novaclient

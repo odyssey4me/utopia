@@ -1,0 +1,4 @@
+plugin: openstack
+fail_on_errors: yes
+only_clouds:
+  - rackspace

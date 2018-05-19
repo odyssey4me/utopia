@@ -1,0 +1,6 @@
+---
+# Test instance
+instance_list:
+  - name: setup-instance-test1
+    flavor: general1-1
+    region: IAD
