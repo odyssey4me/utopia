@@ -37,13 +37,15 @@
       os_server_action:
         action: unlock
         server: "{{ instance['name'] | lower }}"
-        cloud: "{{ cloud_name | default('rackspace') }}"
-        region_name: "{{ instance['region'] | default('IAD') }}"
+        cloud: "{{ cloud_name | default(default_cloud) }}"
+        region_name: "{{ instance['region'] | default(default_region) }}"
         wait: yes
         timeout: 900
       when:
         - instance['name'] in groups['all']
-        - (instance['state'] | default('present') == 'absent' or (instance['state'] | default('present') == 'present' and 'volumes' in instance))
+        - (instance['state'] | default('present') == 'absent' or
+          (instance['state'] | default('present') == 'present' and
+           'volumes' in instance))
       with_items: "{{ instance_list | default([]) }}"
       loop_control:
         label: "{{ instance['name'] }}"
@@ -69,6 +71,7 @@
         timeout: 900
       with_items: "{{ instance_list | default([]) }}"
       loop_control:
+        label: "{{ instance['name'] }}"
         loop_var: instance
 
     - name: Create data volumes
@@ -143,4 +146,5 @@
         - instance['name'] in groups['all']
       with_items: "{{ instance_list | default([]) }}"
       loop_control:
+        label: "{{ instance['name'] }}"
         loop_var: instance
